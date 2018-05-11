@@ -3,6 +3,7 @@ Common
 */
 
 body {
+  min-width: 280px;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
   color: #2d3c49;
@@ -22,20 +23,43 @@ a:hover {
 /* 
 Queries 
 */
+@media screen and (max-width: 349px) {
+  body {
+    margin: 0;
+    padding: 1em 0;
+  }
+  
+  .header-inner {
+    flex-direction: column;
+  }
+  
+  .separator {
+    display: none;
+  }
+  
+  .work {
+    width: 90% !important;
+    margin: auto
+  }
+  
+  .projects {
+    margin-top: 1em;
+  }
+  
+  .project-title, .project-description {
+    display: none;
+  }
+}
 
-@media screen and (min-width: 300px) and (max-width: 549px) {
+@media screen and (min-width: 350px) and (max-width: 549px) {
   body {
     text-align: center;
-    min-width: 330px;
   }
   
   .projects {
     margin: 2.5% 0;
   }
   
-  .work-container {
-    padding: 0;
-  }
 }
 
 @media screen and (min-width: 550px) {
@@ -46,13 +70,13 @@ Queries
   }
 }
 
-@media screen and (min-width: 550px) and (max-width: 850px) {
+@media screen and (min-width: 550px) and (max-width: 849px) {
   .work-container {
     display: flex;
     flex-direction: column !important;
   }
   
-  .work-container div.projects {
+  .projects {
     width: 100% !important;
     flex-direction: row-reverse !important;
     align-self: center;
@@ -64,29 +88,52 @@ Queries
 }
 
 @media screen and (max-width: 549px) {
-  .work-container .projects {
+  .projects {
     width: 100%;
     align-self: center;
   }
   
-  .projects figure {
-    display: none;
+  .proj-fig {
+    display: none !important;
   }
   
   .project-container {
-    padding-top: 150px;
-    background-image: url(proj_1_placeholder.jpg);
+    width: 100%;
+    justify-items: flex-end;
+    padding: 150px 0 0 0 !important;
     background-size: cover;
   }
   
-  .project-container .project-title, .project-container .project-description {
+  #first {
+    background-image: url(Images\\proj_1_placeholder.jpg);
+  }
+  
+  #second {
+    background-image: url(Images\\proj_2_placeholder.jpg);
+  }
+  
+  #third {
+    background-image: url(Images\\proj_3_placeholder.jpg);
+  }
+  
+  .project-title, .project-description {
     background-color: rgba(0,0,0,0.9);
     margin: 0;
-    padding: 2.5%;
+    padding-left: 2.5%;
+    line-height: 1.8em;
+    text-align: start;
+  }
+  
+  .project-title {
+    padding-top: 2.5%;
+  }
+  
+  .project-description {
+    padding-bottom: 2.5%;
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 849px) {
   .work-container {
     display: flex;
     flex-direction: column;
@@ -96,18 +143,33 @@ Queries
     display: flex;
     flex-flow: row-reverse nowrap;
     align-items: center;
-    justify-content: space-between;
-    width: 100% !important;
   }
   
-  .projects figure {
+  .proj-fig {
+    max-width: 100%;
+    display: flex;
+    flex-flow: column wrap;
     text-align: center;
+    flex: 1 1 inherit;
+    padding: 1em 1em 1em 0;
+    margin: auto;
+  }
+  
+  .fig-img {
+    display: flex;
+    flex: 2 1 inherit;
+    height: auto;
+    width: 40vw;
+    max-width: initial;
   }
   
   .project-container {
+    font-size: 2.5vw;
     display: flex;
     flex-direction: column;
-    flex: 1.25; 
+    align-items: flex-start;
+    justify-self: flex-start;
+    padding: 1em;
   }
   
   .project-title {
@@ -124,30 +186,38 @@ Queries
   }
   
   .work-container {
-    width: 100%;
     display: flex;
-    flex-direction: row !important;
-    justify-content: space-between;
+    flex-flow: row nowrap !important;
+    align-items: flex-end;
+    margin-bottom: 2em;
+    border: 1px solid rgba(125, 151, 173, 0.3);
   }
   
-  .projects {
+  .projects { 
     display: flex;
-    flex: 1;
+    flex: 1 1 30%;
     flex-direction: column;
-    align-items: stretch;
-    
+    align-content: flex-start;
   }
   
-  .projects figure {
-    margin: 0;
+  .proj-fig {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
     max-width: 100%;
+    align-items: flex-start;
+    font-size: 1.5vw;
+    height: 35vh;
   }
   
-  .projects img {
+  .fig-img {
     display: flex;
     flex: 1;
-    height: auto;
     max-width: 100%;
+  }
+  
+  .project-container {
+    margin: 1em;
   }
 }
 
@@ -155,10 +225,10 @@ Queries
 Header
 */
 
-.header_inner {
+.header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .logo {
@@ -169,27 +239,22 @@ Header
 }
 
 .header-container {
-  width : fit-content;
-  width: -moz-fit-content;
   display: flex;
-  flex: 1;
   align-items: flex-end;
   justify-items: center;
-  flex-flow: column;
+  flex-flow: column nowrap;
   line-height: .175em;
   margin: 1em;
 }
 
-div.header-container>h1 {
+.name {
   display: inline-flex;
-  height: -moz-fit-content;
-  font-size: ;
   font-weight: 100;
   color: #2d3c49;
   text-transform: uppercase;
 }
 
-div.header-container>h3 {
+.description {
   display: inline-flex;
   margin: 0;
   font-size: small;
@@ -198,7 +263,7 @@ div.header-container>h3 {
   text-transform: uppercase
 }
 
-hr {
+.separator {
   border: 2px solid #7d97ad;
 }
 
@@ -222,6 +287,7 @@ Projects
 }
 
 .work-title {
+  text-align: center;
   font-weight: 400;
   color: #7d97ad;
   font-size: 2em;
@@ -242,7 +308,19 @@ Projects
   width: 100%;
 }
 
-.projects figure {
+.proj-fig {
   text-align: center;
+}
+
+.fig-cap {
+  font-size: 2vw;
+}
+
+.project-container {
+  overflow: hidden;
+}
+
+.project-title, .project-description {
+  width: 100%;
 }
 
