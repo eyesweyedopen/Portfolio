@@ -99,7 +99,6 @@ Queries
   
   .project-container {
     width: 100%;
-    justify-items: flex-end;
     padding: 150px 0 0 0 !important;
     background-size: cover;
   }
@@ -150,14 +149,12 @@ Queries
     display: flex;
     flex-flow: column wrap;
     text-align: center;
-    flex: 1 1 inherit;
     padding: 1em 1em 1em 0;
     margin: auto;
   }
   
   .fig-img {
     display: flex;
-    flex: 2 1 inherit;
     height: auto;
     width: 40vw;
     max-width: initial;
@@ -168,7 +165,6 @@ Queries
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-self: flex-start;
     padding: 1em;
   }
   
@@ -178,12 +174,6 @@ Queries
 }
 
 @media screen and (min-width: 850px) {
-  body {
-    width: 90%;
-    max-width: 1050px;
-    margin-left: auto;
-    margin-right: auto;
-  }
   
   .work-container {
     display: flex;
@@ -197,7 +187,8 @@ Queries
     display: flex;
     flex: 1 1 30%;
     flex-direction: column;
-    align-content: flex-start;
+    align-content: space-between;
+    padding: 2em 0;
   }
   
   .proj-fig {
@@ -205,8 +196,7 @@ Queries
     flex-direction: column;
     margin: 1em;
     max-width: 100%;
-    align-items: flex-start;
-    font-size: 1.5vw;
+    align-items: center;
     height: 35vh;
   }
   
@@ -216,9 +206,26 @@ Queries
     max-width: 100%;
   }
   
-  .project-container {
-    margin: 1em;
+  .fig-cap {
+    font-size: 16px !important;
+    display: inline-flex;
+    align-self: center;
   }
+  
+  .project-container {
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  body {
+    width: 90%;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
 }
 
 /*
@@ -235,13 +242,11 @@ Header
   width: 60px;
   height: 60px;
   display: flex;
-  justify-self: flex-start;
 }
 
 .header-container {
   display: flex;
   align-items: flex-end;
-  justify-items: center;
   flex-flow: column nowrap;
   line-height: .175em;
   margin: 1em;
